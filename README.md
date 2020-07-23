@@ -99,11 +99,11 @@ postgres_default
 > secure your account
 
 ```shell
- secure our app by adding an extra environment variables to the heroku app.
+ secure the app by adding an extra environment variables to the .profile file.
 
 
-heroku config:set AIRFLOW__WEBSERVER__AUTHENTICATE=True
-heroku config:set AIRFLOW__WEBSERVER__AUTH_BACKEND=airflow.contrib.auth.backends.password_auth
+export AIRFLOW__WEBSERVER__AUTHENTICATE=True
+export AIRFLOW__WEBSERVER__AUTH_BACKEND=airflow.contrib.auth.backends.password_auth
 ```
 
 ### Step 9
