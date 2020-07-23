@@ -83,3 +83,4 @@ WTForms==2.2.1
 zope.deprecation==4.4.0
 boto3
 boto
+flask_bcrypt

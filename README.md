@@ -77,7 +77,7 @@ postgres_default
 
 - Create a Stackoverflow app
 - Set the parameters in the variables.json file
-- import variables.jsom file into variables from the airflow UI
+- import variables.json file into variables from the airflow UI
   <img src="/img/graph.png" title="airflowxheroku">
 
 ### Step 7
@@ -85,6 +85,49 @@ postgres_default
 - Run the dag from the airflow UI (The dag runs sucessfully and sends the mail to the specified email address)
 
  <img src="/img/mail.png" title="airflowxheroku">
+
+### Step 8
+
+> secure your account
+
+```shell
+ secure our app by adding an extra environment variables to the heroku app.
+
+
+heroku config:set AIRFLOW__WEBSERVER__AUTHENTICATE=True
+heroku config:set AIRFLOW__WEBSERVER__AUTH_BACKEND=airflow.contrib.auth.backends.password_auth
+```
+
+### Step 9
+
+Open heroku bash with the Command
+
+```
+heroku run bash
+```
+
+> Start python on the heroku bash and type (you know i mean copy right) the following commands as also described in Airflow’s official
+> <a href="https://airflow.incubator.apache.org/security.html" target="_blank">Documentation</a>.
+
+```
+
+>>> import airflow
+>>> from airflow import models, settings
+>>> from airflow.contrib.auth.backends.password_auth import PasswordUser
+>>> user = PasswordUser(models.User())
+>>> user.username = 'new_user_name'
+>>> user.email = 'new_user_email@example.com'
+>>> user.password = 'set_the_password'
+>>> session = settings.Session()
+>>> session.add(user)
+>>> session.commit()
+>>> session.close()
+>>> exit()
+
+```
+
+If everything went well, you should be able to see this screen in your browser:
+<img src="/img/login.png" title="airflowxheroku">
 
 #####Proceed to modify DAG for further customization
 
