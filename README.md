@@ -34,13 +34,21 @@
 > necessary configuration for heroku app
 
 ```shell
-
 Set the following from Heroku CLi
-heroku config:setAIRFLOW**CORE**SQL_ALCHEMY_CONN=<your_postgres_con_string>
-heroku config:set AIRFLOW**CORE**LOAD_EXAMPLES=False
 heroku config:set AIRFLOW_HOME=/app
-heroku config:set AIRFLOW**CORE**FERNET_KEY=<secret_key>
 ```
+
+---
+
+> set environment variables
+
+```
+set AIRFLOW__CORE__SQL_ALCHEMY_CONN in  .profile to your postgreSql connection string
+```
+
+Heroku will automatically export .profile to the env on dyno start up. This way if/when your DB URL changes, it will automatically update.
+
+---
 
 - NB: To prevent error during configuration change the "dags_folder" in the airflow.cfg file to a non existent folder to prevent error as the airflow instance is not configured yet
 - push app to heroku
@@ -49,7 +57,7 @@ heroku config:set AIRFLOW**CORE**FERNET_KEY=<secret_key>
 
 > Now some configuration
 
-```shell
+```
 configure the following in the airflow.cfg file
 sql_alchemy_conn= postgress db uri
 smtp_user =xxxxx@gmail.com
