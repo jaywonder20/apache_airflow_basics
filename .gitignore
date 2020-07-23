@@ -1,0 +1,8 @@
+.mypy_cache
+.vscode
+/venv2
+/venv
+
+airflow/dags/__pycache__
+
+steps.txt

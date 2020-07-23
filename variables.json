@@ -1,0 +1,8 @@
+{
+  "S3_BUCKET": "stack.overflow.questions.xxx",
+  "STACK_OVERFLOW_CLIENT_ID": 00000,
+  "STACK_OVERFLOW_CLIENT_SECRET": "xxxxxxxxxxxxxxxxxxxxxxxx",
+  "STACK_OVERFLOW_KEY": "xxxxxxxxxxxxxxxxxxxxxxxx",
+  "STACK_OVERFLOW_QUESTION_URL": "https://api.stackexchange.com/2.2/questions",
+  "TAG": "airflow"
+}
