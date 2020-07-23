@@ -8,27 +8,6 @@
 
 > Actually this is over engineered and can be done with a simple cronjob or a simple .py script but this a simple project I used to learn apache airflow
 
-## Example (Optional)
-
-- Clone this repo to your local machine using `https://github.com/jaywonder20/apache_airflow_basics`
-
-### Setup
-
-- create Heroku app
-- add postgresSql add to heroku app
-- create virtualenv
-
-> necessary configuration for heroku app
-
-```shell
-
-Set the following from Heroku CLi
-heroku config:setAIRFLOW**CORE**SQL_ALCHEMY_CONN=<your_postgres_con_string>
-heroku config:set AIRFLOW**CORE**LOAD_EXAMPLES=False
-heroku config:set AIRFLOW_HOME=/app
-heroku config:set AIRFLOW**CORE**FERNET_KEY=<secret_key>
-```
-
 ---
 
 ---
@@ -51,6 +30,20 @@ heroku config:set AIRFLOW**CORE**FERNET_KEY=<secret_key>
 ### Step 2
 
 - **Create heroku app and add postgreSql Add-on** 🔨🔨🔨
+
+> necessary configuration for heroku app
+
+```shell
+
+Set the following from Heroku CLi
+heroku config:setAIRFLOW**CORE**SQL_ALCHEMY_CONN=<your_postgres_con_string>
+heroku config:set AIRFLOW**CORE**LOAD_EXAMPLES=False
+heroku config:set AIRFLOW_HOME=/app
+heroku config:set AIRFLOW**CORE**FERNET_KEY=<secret_key>
+```
+
+- NB: To prevent error during configuration change the "dags_folder" in the airflow.cfg file to a non existent folder to prevent error as the airflow instance is not configured yet
+- push app to heroku
 
 ### Step 3
 
@@ -87,7 +80,13 @@ postgres_default
 - import variables.jsom file into variables from the airflow UI
   <img src="/img/graph.png" title="airflowxheroku">
 
----
+### Step 7
+
+- Run the dag from the airflow UI (The dag runs sucessfully and sends the mail to the specified email address)
+
+ <img src="/img/mail.png" title="airflowxheroku">
+
+#####Proceed to modify DAG for further customization
 
 ## Support
 
@@ -95,6 +94,7 @@ Reach out to me at one of the following places!
 
 - Website at <a href="https://jaywonder20.netlify.app" target="_blank">`jaywonder20.netlify.app`</a>
 - Twitter at <a href="http://twitter.com/jaywonder20" target="_blank">`@jaywonder20`</a>
+- Linkedin at <a href="http://linkedin.com/in/jaywonder20" target="_blank">`linkedin.com/in/jaywonder20`</a>
 
 ---
 
