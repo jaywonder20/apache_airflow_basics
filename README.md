@@ -37,7 +37,7 @@ heroku config:set AIRFLOW**CORE**FERNET_KEY=<secret_key>
 
 ## Setup
 
-> To get started...
+> To get started a basic knowledge of apache airflow, Heroku cli , AWS S3 bucket and python is required
 
 ### Step 1
 
@@ -93,7 +93,7 @@ postgres_default
 
 Reach out to me at one of the following places!
 
-- Website at <a href="https://jaywonder20.netlify.app" target="_blank">`fvcproductions.com`</a>
+- Website at <a href="https://jaywonder20.netlify.app" target="_blank">`jaywonder20.netlify.app`</a>
 - Twitter at <a href="http://twitter.com/jaywonder20" target="_blank">`@jaywonder20`</a>
 
 ---
